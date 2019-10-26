@@ -7,14 +7,14 @@ $(window).on("load", function () {
     $("#currentDay").append(headerdate)
     console.log("test");
     var timeData = JSON.parse(localStorage.getItem("timeSlots"));
-    
+    console.log(timeData)
     if(!timeData){
         timeData = {};
 
         $(".timeOfDay").each(function(){
             timeData[$(this).attr("data-time")] = null
         })
-        localStorage.setItem("timeSlots", timeData)
+        localStorage.setItem("timeSlots", JSON.stringify(timeData))
     }
 
     console.log(timeData)
@@ -60,7 +60,5 @@ $(".save").on("click", function () {
 
 
 });
-
-
 
 
